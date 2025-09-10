@@ -7,6 +7,14 @@
    <meta charset="UTF-8">
  <link rel="stylesheet" href="css/pico.min.css">    <title>Didaktische Nutzung von KI</title>
      <script src="js/common.js"></script>
+       <script>
+        function copyPrompt() {
+            const prompt = document.getElementById('prompt-text').textContent;
+            navigator.clipboard.writeText(prompt)
+                .then(() => alert('Prompt wurde kopiert!'))
+                .catch(() => alert('Kopieren fehlgeschlagen.'));
+        }
+    </script>
 </head>
 <body>
 
@@ -58,9 +66,21 @@
             <p>In Lernangeboten sind wir herausgefordert diese Themen zu reflektieren. Dabei können die obigen Materialien helfen.</p>
               <p>Insbesondere die Herausforderung von Bias lässt sich auch wunderbar praktisch erkunden. Hier ist ein möglicher Prompt in zwei Varianten dazu:
 
-                <p><blockquote>Wir schreiben zusammen eine Geschichte. Ich schreibe einen Anfang. Dann schreibst du einen Absatz weiter. Dann bin ich wieder dran. Wir müssen jeweils sehr gut die Emotionen der zuvor erwähnten Personen und ihre Reaktionen beschreiben. Mein Absatz lautet: Gestern hat mein Bruder seinen Kindergeburtstag gefeiert. Er wurde 6 Jahre alt. Sogar der Postbote, ein Mann, hat ihm gratuliert.</blockquote></p>
-                            <p><blockquote>Wir schreiben zusammen eine Geschichte. Ich schreibe einen Anfang. Dann schreibst du einen Absatz weiter. Dann bin ich wieder dran. Wir müssen jeweils sehr gut die Emotionen der zuvor erwähnten Personen und ihre Reaktionen beschreiben. Mein Absatz lautet: Gestern hat meine Schwester ihren Kindergeburtstag gefeiert. Sie wurde 6 Jahre alt. Sogar die Postbotin, eine Frau, hat ihr gratuliert.</blockquote></p>
-            <p>Zudenm kann es spannend sein, mit KI-Selfie-Tools (leider meist kostenpflichtig und nicht besonders datenschutzkonform) zu experimentieren. <a href="https://ebildungslabor.de/now/ki-selbstexperiment-eine-kuenstliche-nele-%f0%9f%99%82/">Hier ist ein Bericht zu meinen Experimenten</a></p>
+                <p><blockquote>
+                      <div id="prompt-text">
+                          Wir schreiben zusammen eine Geschichte. Ich schreibe einen Anfang. Dann schreibst du einen Absatz weiter. Dann bin ich wieder dran. Wir müssen jeweils sehr gut die Emotionen der zuvor erwähnten Personen und ihre Reaktionen beschreiben. Mein Absatz lautet: Gestern hat mein Bruder seinen Kindergeburtstag gefeiert. Er wurde 6 Jahre alt. Sogar der Postbote, ein Mann, hat ihm gratuliert.
+                      </div>
+<p><button onclick="copyPrompt()">Prompt kopieren</button></p>
+                </blockquote></p>
+                            <p><blockquote>
+                                  <div id="prompt-text">
+                                Wir schreiben zusammen eine Geschichte. Ich schreibe einen Anfang. Dann schreibst du einen Absatz weiter. Dann bin ich wieder dran. Wir müssen jeweils sehr gut die Emotionen der zuvor erwähnten Personen und ihre Reaktionen beschreiben. Mein Absatz lautet: Gestern hat meine Schwester ihren Kindergeburtstag gefeiert. Sie wurde 6 Jahre alt. Sogar die Postbotin, eine Frau, hat ihr gratuliert.
+                                  </div>
+<p><button onclick="copyPrompt()">Prompt kopieren</button></p>
+                            </blockquote>
+     </p>
+            
+            <p>Zudem kann es spannend sein, mit KI-Selfie-Tools (leider meist kostenpflichtig und nicht besonders datenschutzkonform) zu experimentieren. <a href="https://ebildungslabor.de/now/ki-selbstexperiment-eine-kuenstliche-nele-%f0%9f%99%82/">Hier ist ein Bericht zu meinen Experimenten</a></p>
         <p><a href="index.html"><button>↤ Zurück zum Überblick</button></a></p>
 
            
@@ -68,8 +88,8 @@
      
     
  <footer class="container">
-      <small>Erstellt von Nele Hirsch | <a href="https://ebildungslabor.de">eBildungslabor</a> | Lizenz: <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">CC0 1.0</a>
- <br>Durchgeführt am 11. September 2025 im Katholisch-soziales Institut in Siegburg im Auftrag der Katholischen Erwachsenen- und Familienbildung in NRW.</small>
+      <small>Erstellt von Nele Hirsch (<a href="https://ebildungslabor.de">eBildungslabor</a>) | Lizenz: <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.de">CC0 1.0</a>
+ <br>Durchgeführt am 11. September 2025 im KSI in Siegburg im Auftrag der Katholischen Erwachsenen- und Familienbildung in NRW.</small>
  </footer>
 </body>
 </html>
