@@ -6,6 +6,14 @@
    <meta charset="UTF-8">
  <link rel="stylesheet" href="css/pico.min.css">    <title>Didaktische Nutzung von KI</title>
      <script src="js/common.js"></script>
+     <script>
+        function copyPrompt() {
+            const prompt = document.getElementById('prompt-text').textContent;
+            navigator.clipboard.writeText(prompt)
+                .then(() => alert('Prompt wurde kopiert!'))
+                .catch(() => alert('Kopieren fehlgeschlagen.'));
+        }
+    </script>
 </head>
 <body>
 
@@ -43,6 +51,16 @@
             <strong>Grundidee:</strong> KI unterstützt bei der Erstellung und Aufbereitung von Materialien, um Wissen strukturiert zu vermitteln. Dabei können insbesondere auch personalisierte Materialien generiert werden. Hilfreich ist es, bestehende Inhalte in den Prompt zu integrieren, so dass diese den Anforderungen entsprechend aufbereitet werden.
         </p>
     </article>
+    <p>Als Lehrmaterialersteller*in funktionieren KI-Sprachmodelle besonders gut, wenn sie klare Angaben zum gewünschten Output bekommen sowie möglichst guten Input, der zur Gestaltung der Lehrmaterialien verwendet werden soll. Du könntest dir in diesem Sinne Multiple Choice Aufgaben, Zusammenfassungen, Lückentexte und vieles mehr generieren lassen. Sehr gut lassen sich solche Lehrmaterialien dann mit <a href="https://einstiegh5p.de">H5P</a> realisieren. Den folgenden Prompt könntest du als Augangspunkt nehmen:</p>
+    <p><blockquote>
+
+    <div id="prompt-text">
+    Hier ist das Transkript eines Videos: [Transkript einfügen]. Bitte erstelle mir zu diesem Transkript 5 Multiple Choice Fragen mit jeweils 3 Antwortmöglichkeiten.
+
+    </div>
+        <button onclick="copyPrompt()">Prompt kopieren</button>
+</blockquote>
+</p>
 </details>
 <details>
   <summary>Impulsgeber*in</summary>
@@ -50,7 +68,18 @@
         <p>
             <strong>Grundidee:</strong> KI generiert Materialien mit kreativen Denkanstößen und vielfältigen Perspektiven, mit denen Lernende in Austausch untereinander kommen können.
         </p>
+     
     </article>
+ <p>Bei der Rolle als Impulsgeber*in ist es entscheidend, dass du dir über die Methodik Gedanken machst, mit der die generierten Materialien zum Einsatz kommen sollen. Hilfreich sind z.B. Fragen für einen Kartentausch zum Einstieg, die Generierung von Personas für einen Design Thinking Prozess, die Formulierung von Thesen für deine Folien etc. Den folgenden Prompt könntest du als Augangspunkt nehmen:</p>
+    <p><blockquote>
+
+    <div id="prompt-text">
+    Hier ist eine Workshopbeschreibung: [Text einfügen]. Bitte erstelle mir eine Liste mit 20 Fragen, zu denen sich Teilnehmende zum Einstieg in den Workshop austauschen könnten.
+
+    </div>
+        <button onclick="copyPrompt()">Prompt kopieren</button>
+</blockquote>
+</p>
 </details>
 
             <details>
@@ -60,14 +89,58 @@
             <strong>Grundidee:</strong> Die KI agiert als interaktive Tutorin, beantwortet Fragen, erklärt Konzepte und gibt Rückmeldungen in Echtzeit. Hier interagieren Lernende direkt mit der KI.
         </p>
     </article>
+ <p>Bei der Rolle als Lerntutor*in befähigst du Lernende dazu, dass sie selbstständig in Interaktion mit einem KI-Modell lernen können. Es ist hier hilfreich, nicht nach fertigen Antworten zu fragen, sondern sich von einem KI-Sprachmodell herausfordern zu lassen. Den folgenden Prompt könntest du als Augangspunkt nehmen:</p>
+    <p><blockquote>
+
+    <div id="prompt-text">
+   Ich möchte mich in das folgende Thema einarbeiten: [Thema einfügen]. Bitte führe mit mir dazu einen sokratischen Dialog. Du stellst mir dazu eine erste Frage, wartest meine Antwort ab und stellst daraif aufbauend die nächste Frage. Das Ziel ist, dass ich mich gut in dem Thema zurechtfinde.
+
+    </div>
+        <button onclick="copyPrompt()">Prompt kopieren</button>
+</blockquote>
+</p>
+</details>
 </details>
 
             <details>
   <summary>Spielpartner*in</summary>
-  <p>
+<article>
+                <p>
             <strong>Grundidee:</strong> KI wird individuell oder gemeinsam von einer Lerngruppe als interaktive, kreative Gesprächspartnerin genutzt, um Ideen zu entwickeln, Argumente zu testen oder Rollenspiele durchzuführen. Sie wirkt eher als Resonanz-, denn als Antwortmaschine.
         </p>
-</details>
+    </article>
+ <p>Als Lerngestalter*in ist es weniger deine Rolle für Lernende passende Spiele vorzubereoten, sondern sie dazu zu befähigen, sich ihre eigenen Spiele zu entwickeln. Dazu lohnt es sich, einen beispielhaften Prompt anzubieten, der ausprobiert werden kann, um dann in eine eigene Entwicklung zu gehen. Auf einer individuellen Ebene ist dieser, sehr einfache Prompt zu empfehlen:</p>
+    <p><blockquote>
+
+    <div id="prompt-text">
+   Wir spielen ein Spiel. Gesucht sind kreative Ideen zum Thema: [Thema einfügen]. Wir sind immer abwechselnd an der Reihe. Du forderst mich zu einer Idee heraus, dann bist du an der Reihe, dann wieder ich ... Deine Ideen sollen möglichst vielfältig und kreativ sein.
+    </div>
+        <button onclick="copyPrompt()">Prompt kopieren</button>
+</blockquote>
+</p>
+<p>In Gruppen kann unter anderem dieses Spiel gespielt werden. Ich habe es ausformuliert für die Herausforderung von Lernkulturveränderung im Kontext von KI. Jede mitspielende Person muss sich vorab einen Gegenstand suchen (z.B. einen Schlüsselanhänger).</p>
+             <p><blockquote>
+
+    <div id="prompt-text">
+  Du bist eine KI, die eine Kleingruppe spielerisch durch ein Aktivierungsformat begleitet. Ziel ist es, über Lernkulturveränderung in der Erwachsenenbildung im Kontext künstlicher Intelligenz nachzudenken – mit besonderem Fokus auf selbstbestimmtes Lernen, Kollaboration und neue Formen des Umgangs mit Wissen. Du nutzt dazu ein Zufallsgegenstände-Spiel: Jede Person hat sich einen zufälligen Gegenstand gesucht. Dein Auftrag ist es, nacheinander für jede Person eine **anregende Frage** zu stellen, die von dem jeweiligen Gegenstand ausgeht. Die Fragen sollen zum Nachdenken anregen und sich auf zentrale Themen einer zeitgemäßen Lernkultur im Kontext von KI beziehen: etwa Selbststeuerung, Kreativität, Zusammenarbeit, Beteiligung, Verantwortung, Sinn, Beziehungsgestaltung, Nachhaltigkeit, Offenheit für Vielfalt und neue Perspektiven - jeweils in Kombination mit der veränderten Situation und Möglichkeiten durch KI in der Erwachsenenbildung.
+<br>
+Bitte führe das Spiel wie folgt durch:
+<br>
+1. Begrüße die Gruppe freundlich und erkläre kurz, dass du sie mit Fragen zum Nachdenken zu einer veränderten Lernkultur im Kontext von KI herausfordern wirst.
+<br>2. Bitte die erste Person, ihren Zufallsgegenstand zu nennen.
+<br>3. Wenn sie den Gegemstand beschreibt, formuliere eine passende, kreative Frage, die ausgehend von diesem Gegenstand eine Reflexion über Lernkulturveränderung im Kontext von KI ermöglicht. Die Frage muss sowohl etwas mit dem Gegenstand zu tun haben, als auch die Themen KI und Lernkultur aufgreifen.
+<br>4. Bitte die Person, ihre Antwort **kurz in der Gruppe zu teilen**. Sie teilt die Idee nicht mit dir. Lade somit direkt schon die **nächste Person** ein, ihren Zufalls-Gegenstand danach zu nennen.
+<br>5. Wenn keine weitere Person mehr da ist oder die Zeit vorbei ist: Bedanke dich herzlich, beende das Spiel freundlich und verabschiede dich.
+<br>
+Wichtig: Bleibe im Ton positiv, kreativ und locker. Nutze für die Fragen bildhafte Sprache und verankere sie in der Lebenswelt der Teilnehmenden. Es geht um neue Denkanstöße und eine Herausforderung zum Denken.
+<br>
+Starte jetzt mit dem Spiel!
+    </div>
+        <button onclick="copyPrompt()">Prompt kopieren</button>
+</blockquote>
+</p>
+
+            </details>
 
 <h2>Was können wir tun?</h2>
             <p>Probiere die vorgestellten Prompts aus und passe sie für deinen Kontext an.</p>
