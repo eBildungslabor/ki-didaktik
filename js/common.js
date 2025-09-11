@@ -1,57 +1,52 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Code für die index.html (Startseite)
-    const form = document.getElementById('inputForm');
-    if (form) {
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            // Eingabedaten sammeln
-            const topic = document.getElementById('topic').value;
-            const understanding = document.getElementById('understanding').value;
-            const skills = document.getElementById('skills').value;
-            const reflection = document.getElementById('reflection').value;
-
-            // Daten im lokalen Speicher speichern
-            localStorage.setItem('topic', topic);
-            localStorage.setItem('understanding', understanding);
-            localStorage.setItem('skills', skills);
-            localStorage.setItem('reflection', reflection);
-
-            // Weiter zur Ergebnis-Seite
-            window.location.href = 'result.html';
+function copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        // Moderne Browser mit Clipboard API
+        navigator.clipboard.writeText(text).then(() => {
+            console.log('Text kopiert');
+        }).catch(err => {
+            console.error('Fehler beim Kopieren:', err);
         });
+    } else {
+        // Fallback für ältere Browser
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            console.log('Text kopiert (Fallback)');
+        } catch (err) {
+            console.error('Fehler beim Kopieren:', err);
+        }
+        document.body.removeChild(textArea);
     }
+}
 
-    // Code für die result.html (Ergebnis-Seite)
-    const outputTopic = document.getElementById('outputTopic');
-    const outputUnderstanding = document.getElementById('outputUnderstanding');
-    const outputSkills = document.getElementById('outputSkills');
-    const outputReflection = document.getElementById('outputReflection');
-    const copyButton = document.getElementById('copyButton');
-
-    if (outputTopic && outputUnderstanding && outputSkills && outputReflection) {
-        // Daten aus dem lokalen Speicher holen
-        const topic = localStorage.getItem('topic');
-        const understanding = localStorage.getItem('understanding');
-        const skills = localStorage.getItem('skills');
-        const reflection = localStorage.getItem('reflection');
-
-        // Daten in die HTML-Elemente einsetzen
-        outputTopic.textContent = topic;
-        outputUnderstanding.textContent = understanding;
-        outputSkills.textContent = skills;
-        outputReflection.textContent = reflection;
-    }
-
-    // Kopierfunktion
-    if (copyButton) {
-        copyButton.addEventListener('click', function () {
-            const resultText = document.getElementById('resultText').innerText;
-            navigator.clipboard.writeText(resultText).then(() => {
-                alert('Text wurde kopiert!');
-            }).catch(err => {
-                console.error('Kopieren fehlgeschlagen: ', err);
-            });
+// Event Listener für alle Copy-Buttons
+document.addEventListener('DOMContentLoaded', function() {
+    const copyButtons = document.querySelectorAll('.copyButton');
+    
+    copyButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                const textToCopy = targetElement.textContent.trim();
+                copyToClipboard(textToCopy);
+                
+                // Visuelles Feedback
+                const originalText = this.textContent;
+                this.textContent = 'Kopiert!';
+                this.style.backgroundColor = '#4CAF50';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.backgroundColor = '';
+                }, 2000);
+            }
         });
-    }
+    });
 });
